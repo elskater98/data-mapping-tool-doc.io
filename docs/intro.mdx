@@ -1,0 +1,77 @@
+---
+title: Introduction
+sidebar_position: 1
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Data Mapping Tool
+
+`Data Mapping Tool` is a web platform that allows users to load their tabular data as `CSV` and map it according to the ontology
+selected. In addition, this platform generates a `YARRRML` file as output. Nevertheless, you can transform the result to
+other formats such as `RML`, `R2RML` or `RDF`.
+
+### What you'll need
+Before running `Data Mapping Tool` platform, you first need to install the following dependencies:
+#### Python 🐍
+
+<Tabs>
+<TabItem value="MacOS" label="MacOS" default>
+
+```shell
+    brew install python@3.8
+```
+
+</TabItem>
+<TabItem value="Ubuntu" label="Ubuntu">
+
+```shell
+    sudo apt install python
+```
+
+</TabItem>
+</Tabs>
+
+
+#### MongoDB 🍃
+#### Docker-compose
+
+<Tabs>
+<TabItem value="docker" label="Docker-compose" default>
+
+```yml title="docker-compose.yml"
+    version: "3"
+    services:
+        mongo:
+            image: mongo:latest
+            ports:
+                - "27017:27017"
+            environment:
+                - MONGO_INITDB_DATABASE=${DATABASE_NAME}
+                - MONGO_INITDB_ROOT_USERNAME=${ROOT_USERNAME}
+                - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
+            volumes:
+            - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+```
+
+```js title="init-mongo.js"
+db.createUser({
+    user: '${ROOT_USERNAME}',
+    pwd: '${ROOT_PASSWORD}',
+    roles: [{role: 'readWrite', db: '${DATABASE_NAME}'}]
+});
+
+```
+
+</TabItem>
+<TabItem value="Standalone" label="Standalone">
+
+Follow the following guide:
+
+</TabItem>
+</Tabs>
+
+### Node
+
+    - npm 8.1.0+
+    - node 16.13.0+

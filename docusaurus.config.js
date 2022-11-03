@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
     title: 'Data Mapping Tool',
     tagline: 'Dinosaurs are cool',
-    url: 'https://elskater98.github.io/data-mapping-tool-doc.io',
-    baseUrl: '/',
+    url: 'https://elskater98.github.io',
+    baseUrl: '/data-mapping-tool-doc.io',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     favicon: 'img/favicon.ico',
