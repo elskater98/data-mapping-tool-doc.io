@@ -11,47 +11,55 @@ import TabItem from '@theme/TabItem';
 selected. In addition, this platform generates a `YARRRML` file as output. Nevertheless, you can transform the result to
 other formats such as `RML`, `R2RML` or `RDF`.
 
-### What you'll need
+## What you'll need
 Before running `Data Mapping Tool` platform, you first need to install the following dependencies:
-#### Python 🐍
+### Python 🐍
 
 <Tabs>
 <TabItem value="MacOS" label="MacOS" default>
 
 ```shell
-    brew install python@3.8
+brew install python@3.8
 ```
 
 </TabItem>
 <TabItem value="Ubuntu" label="Ubuntu">
 
 ```shell
-    sudo apt install python
+sudo apt install python
 ```
 
 </TabItem>
 </Tabs>
 
 
-#### MongoDB 🍃
-#### Docker-compose
+### MongoDB 🍃
 
 <Tabs>
 <TabItem value="docker" label="Docker-compose" default>
 
+Create the following two files, `docker-compose.yml` and `init-mongo.js`, to up a container with MongoDB image with `root` user.
+
+:::caution
+
+Replace **${_VARIABLE_}** from files `docker-compose.yml` and `init-mongo.js`, and set yours.
+
+:::
+
+
 ```yml title="docker-compose.yml"
-    version: "3"
-    services:
-        mongo:
-            image: mongo:latest
-            ports:
-                - "27017:27017"
-            environment:
-                - MONGO_INITDB_DATABASE=${DATABASE_NAME}
-                - MONGO_INITDB_ROOT_USERNAME=${ROOT_USERNAME}
-                - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
-            volumes:
-            - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
+version: "3"
+services:
+    mongo:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        environment:
+            - MONGO_INITDB_DATABASE=${DATABASE_NAME}
+            - MONGO_INITDB_ROOT_USERNAME=${ROOT_USERNAME}
+            - MONGO_INITDB_ROOT_PASSWORD=${ROOT_PASSWORD}
+        volumes:
+        - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
 ```
 
 ```js title="init-mongo.js"
@@ -66,12 +74,26 @@ db.createUser({
 </TabItem>
 <TabItem value="Standalone" label="Standalone">
 
-Follow the following guide:
+To install MongoDB in your local machine follow the official [guide](https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/).
 
 </TabItem>
 </Tabs>
 
 ### Node
 
-    - npm 8.1.0+
-    - node 16.13.0+
+<Tabs>
+<TabItem value="MacOS" label="MacOS" default>
+
+```shell
+brew install node
+```
+
+</TabItem>
+<TabItem value="Ubuntu" label="Ubuntu">
+
+```shell
+sudo apt install nodejs
+```
+
+</TabItem>
+</Tabs>

@@ -1,0 +1,60 @@
+---
+title: Backend
+sidebar_position: 2
+---
+In order to run the platform successfully, we need to configure the backend and client part. First of all we have to install all
+the dependencies said in [section](../intro.mdx).
+
+# Getting Started
+## Install Python Dependencies
+
+    pip install -r requirements.txt
+
+## Configure environment variables
+
+:::danger
+
+Please, avoid sharing the `.env` file, it contains sensible data such as database configuration. 
+
+:::
+
+```shell title=".env"
+FLASK_APP=app
+FLASK_ENV=production
+
+SECRET_KEY=
+SERVER_HOSTNAME=
+SERVER_PORT=
+
+JWT_SECRET_KEY=
+JWT_ACCESS_TOKEN_EXPIRES=
+JWT_REFRESH_TOKEN_EXPIRES=
+
+MONGO_URI=
+
+ADMIN_EMAIL=
+ADMIN_PASSWORD=
+
+```
+
+:::info
+
+An easy way to generate secret keys is using the follow command line
+
+```shell
+python -c 'import secrets; print(secrets.token_hex())'
+```
+
+:::
+
+
+## Run Server
+Set the correct `<localhost>` and `<port>` variables.
+
+```shell
+flask run --host=<localhost> --port=<port>
+```
+
+## Ontology
+
+The ontology that the backend may use is in `RDF/XML Syntax` format, in addition you have some example in the folder `examples/ontologies`.

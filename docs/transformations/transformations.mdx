@@ -1,0 +1,23 @@
+---
+title: Data transformation
+sidebar_position: 5
+---
+
+# Transformations
+## [YARRRML to R2RML or RML](https://rml.io/yarrrml/)
+After obtain the output you can transform it to R2RML or RML using the [`RMLIO YARRRML PARSER`](https://rml.io/yarrrml/).
+
+
+## [RML to RDF](https://hub.docker.com/r/rmlio/yarrrml-parser)
+
+```shell
+    docker pull rmlio/rmlmapper-java
+    docker run --rm -v $(pwd)/:/data rmlio/rmlmapper-java  -m mapping.ttl -o /data/out.rdf
+```
+
+### [YARRRML]
+
+```shell
+    docker pull rmlio/yarrrml-parser
+    docker run --rm -it -v $(pwd)/:/data rmlio/yarrrml-parser:latest -i /data/input.yml -o /data/mapping.ttl
+```
