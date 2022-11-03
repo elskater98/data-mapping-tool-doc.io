@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
     title: 'Data Mapping Tool',
     tagline: 'Dinosaurs are cool',
-    url: 'https://your-docusaurus-test-site.com',
+    url: 'https://elskater98.github.io/data-mapping-tool-doc.io',
     baseUrl: '/',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
@@ -18,7 +18,6 @@ const config = {
     // If you aren't using GitHub pages, you don't need these.
     organizationName: 'elskater98', // Usually your GitHub org/user name.
     projectName: 'data-mapping-tool-doc.io', // Usually your repo name.
-
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
     // to replace "en" with "zh-Hans".
