@@ -7,15 +7,12 @@ sidebar_position: 5
 ## [YARRRML to R2RML or RML](https://rml.io/yarrrml/)
 After obtain the output you can transform it to R2RML or RML using the [`RMLIO YARRRML PARSER`](https://rml.io/yarrrml/).
 
-
-## [RML to RDF](https://hub.docker.com/r/rmlio/yarrrml-parser)
-
 ```shell
     docker pull rmlio/rmlmapper-java
     docker run --rm -v $(pwd)/:/data rmlio/rmlmapper-java  -m mapping.ttl -o /data/out.rdf
 ```
 
-### [YARRRML]
+## [RML to RDF](https://hub.docker.com/r/rmlio/yarrrml-parser)
 
 ```shell
     docker pull rmlio/yarrrml-parser
